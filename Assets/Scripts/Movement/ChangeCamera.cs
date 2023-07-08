@@ -5,9 +5,7 @@ using UnityEngine.Events;
 
 public class ChangeCamera : MonoBehaviour
 {
-    public GameObject playerFilter;
-
-    public Material[] filtros;
+    public GameObject[] filtros;
     int i =0;
     void Update()
     {
