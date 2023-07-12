@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Password : MonoBehaviour
 {
-
-    // Start is called before the first frame update
+    [SerializeField] GameObject puzzlePanel;
+    [SerializeField] KeyCode interactKey;
+    [SerializeField] 
     void Start()
     {
         
@@ -13,6 +14,13 @@ public class Password : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        if(Input.GetKeyDown(interactKey))
+        {
+            //se activa
+        }
+    }
+    void ActivarPuzzle()
     {
         
     }
