@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class Password : MonoBehaviour
 {
-    [SerializeField] GameObject puzzlePanel;
-    [SerializeField] KeyCode interactKey;
-    [SerializeField] 
+    [SerializeField] string respuesta;
+    public string passIng;
+    [SerializeField] GameObject door;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        if(Input.GetKeyDown(interactKey))
-        {
-            //se activa
-        }
     }
-    void ActivarPuzzle()
+
+    public void CheckearPass()
     {
-        
+        if(passIng == respuesta)
+        {
+            door.GetComponent<Door>().isOpen =true;
+        }
     }
 }

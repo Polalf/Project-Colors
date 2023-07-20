@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Numero : MonoBehaviour
 {
-    public Pantalla pantalla;
+    public Code pantalla;
     public int valor;
     private void OnMouseDown()
     {

@@ -6,14 +6,16 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] float speed;
-    float currenSpeed;
+    float currentSpeed;
 
     public CharacterController controller;
 
+   
 
     void Start()
     {
-        currenSpeed = speed;
+        
+        currentSpeed = speed;
     }
 
     // Update is called once per frame
@@ -24,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        controller.Move(move * currenSpeed * Time.deltaTime);
+        controller.Move(move * currentSpeed * Time.deltaTime);
+
+       
     }
 }

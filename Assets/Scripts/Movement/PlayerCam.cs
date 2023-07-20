@@ -10,7 +10,6 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] Transform orientation;
 
     float xRota = 0f;
-    public bool inPuzzle;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -19,10 +18,7 @@ public class PlayerCam : MonoBehaviour
 
 
     void Update()
-    {
-        
-        if(!inPuzzle)
-        {
+    { 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sens;
@@ -34,12 +30,7 @@ public class PlayerCam : MonoBehaviour
 
             transform.localRotation = Quaternion.Euler(xRota, 0, 0);
             orientation.Rotate(Vector3.up * mouseX);
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+       
         
     }
 }
