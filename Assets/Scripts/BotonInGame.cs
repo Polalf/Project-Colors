@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class AccesDel : MonoBehaviour
+public class BotonInGame : MonoBehaviour
 {
 
     public UnityEvent onclick;

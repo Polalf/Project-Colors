@@ -31,10 +31,29 @@ public class Code : MonoBehaviour
         {
             puerta.GetComponent<Door>().isOpen = true;
         }
+        else
+        {
+            StartCoroutine(IncorrectAnim());
+        }
     }
     
     public void LimpiarPantalla()
     {
+        numeros.text = "";
+        currentAns = "";
+    }
+
+    IEnumerator IncorrectAnim()
+    {
+        int x = 0;
+        while(x < 3)
+        {
+            numeros.color = new Color(1, 0, 0);
+            yield return new WaitForSeconds(.2f);
+            numeros.color = new Color(1, 1, 1);
+            yield return new WaitForSeconds(.2f);
+            x++;
+        }
         numeros.text = "";
         currentAns = "";
     }

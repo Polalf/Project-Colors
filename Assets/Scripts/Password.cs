@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Password : MonoBehaviour
 {
-    [SerializeField] string respuesta;
-    public string passIng;
-    [SerializeField] GameObject door;
+    [SerializeField] int[] respuesta;
+    public PassChar[] passIng;
+    [SerializeField] Door door;
     void Start()
     {
         
@@ -15,13 +15,24 @@ public class Password : MonoBehaviour
     
     void Update()
     {
+        CheckearPass();
     }
 
     public void CheckearPass()
     {
-        if(passIng == respuesta)
+        int aciertos = 0;
+        for(int x = 0; x<respuesta.Length; x++)
         {
-            door.GetComponent<Door>().isOpen =true;
+            if(passIng[x].indiceCasilla == respuesta[x])
+            {
+                aciertos++;
+            }
         }
+
+        if(aciertos == respuesta.Length)
+        {
+            door.isOpen = true;
+        }
+        
     }
 }
