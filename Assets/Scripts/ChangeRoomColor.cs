@@ -5,7 +5,8 @@ using UnityEngine;
 public class ChangeRoomColor : MonoBehaviour
 {
     [SerializeField] Light roomLight;
-    [SerializeField] GameObject[] roomParts, secrets; 
+    [SerializeField] GameObject[] roomParts, secrets;
+    [SerializeField] Material[] roomColors;
     [SerializeField] int colorRoom;
     void Start()
     {
@@ -15,7 +16,7 @@ public class ChangeRoomColor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -29,20 +30,30 @@ public class ChangeRoomColor : MonoBehaviour
 
     void CambioDeColor(int color)
     {
-        if(color == 0) //BLANCO
+        if (color == 0) //BLANCO
         {
-            roomLight.color = new Color(1,1,1);
-            for(int x = 0;x < roomParts.Length;x++)
+            roomLight.color = new Color(1, 1, 1);
+            for (int x = 0; x < roomParts.Length; x++)
             {
-                roomParts[x].GetComponent<Material>().color = new Color(1, 1, 1);
+                roomParts[x].GetComponent<MeshRenderer>().material = roomColors[0];
+            }
+            for(int y = 0; y < secrets.Length;y++)
+            {
+                if (secrets[y].tag == "Blanco") secrets[y].SetActive(true);
+                else secrets[y].SetActive(false);
             }
         }
-        else if(color == 1) //ROJO
+        else if (color == 1) //ROJO
         {
             roomLight.color = new Color(1, 0, 0);
             for (int x = 0; x < roomParts.Length; x++)
             {
-                roomParts[x].GetComponent<Material>().color = new Color(1, 0, 0);
+                roomParts[x].GetComponent<MeshRenderer>().material = roomColors[1];
+            }
+            for (int y = 0; y < secrets.Length; y++)
+            {
+                if (secrets[y].tag == "Rojo") secrets[y].SetActive(true);
+                else secrets[y].SetActive(false);
             }
         }
         else if (color == 2) //VERDE
@@ -50,7 +61,12 @@ public class ChangeRoomColor : MonoBehaviour
             roomLight.color = new Color(0, 1, 0);
             for (int x = 0; x < roomParts.Length; x++)
             {
-                roomParts[x].GetComponent<Material>().color = new Color(0, 1, 0);
+                roomParts[x].GetComponent<MeshRenderer>().material = roomColors[2];
+            }
+            for (int y = 0; y < secrets.Length; y++)
+            {
+                if (secrets[y].tag == "Verde") secrets[y].SetActive(true);
+                else secrets[y].SetActive(false);
             }
         }
         else if (color == 3) //AZUL
@@ -58,7 +74,12 @@ public class ChangeRoomColor : MonoBehaviour
             roomLight.color = new Color(0, 0, 1);
             for (int x = 0; x < roomParts.Length; x++)
             {
-                roomParts[x].GetComponent<Material>().color = new Color(0, 0, 1);
+                roomParts[x].GetComponent<MeshRenderer>().material = roomColors[3];
+            }
+            for (int y = 0; y < secrets.Length; y++)
+            {
+                if (secrets[y].tag == "Azul") secrets[y].SetActive(true);
+                else secrets[y].SetActive(false);
             }
         }
     }

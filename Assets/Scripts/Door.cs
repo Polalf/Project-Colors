@@ -6,12 +6,14 @@ public class Door : MonoBehaviour
 {
     public bool isOpen = false;
     [SerializeField] float speed;
-    [SerializeField] Light doorLight;
+    float currentSpeed;
+    [SerializeField] Transform ori;
+    [SerializeField] SpriteRenderer doorLight;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentSpeed = speed;
     }
 
     // Update is called once per frame
@@ -19,12 +21,23 @@ public class Door : MonoBehaviour
     {
         if(isOpen)
         {
-            transform.position += transform.up * speed * Time.deltaTime;
+            transform.position += transform.up * currentSpeed * Time.deltaTime;
             doorLight.color = new Color(0, 1, 0, 1);
+            if (transform.position.y >= 7)
+            {
+                currentSpeed = 0;
+            }
         }
-        if(transform.position.y >= 7)
+        else
         {
-            speed = 0;
+            transform.position = ori.position;
         }
+        
+        
+    }
+
+    public void CerrarPuerta()
+    {
+        isOpen = false;
     }
 }
