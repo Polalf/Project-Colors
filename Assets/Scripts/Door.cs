@@ -9,10 +9,13 @@ public class Door : MonoBehaviour
     float currentSpeed;
     [SerializeField] Transform ori;
     [SerializeField] SpriteRenderer doorLight;
-    
+    [SerializeField] AudioSource fuente;
+    [SerializeField] AudioClip openSound, closeSound;
+    bool canSound;
     // Start is called before the first frame update
     void Start()
     {
+        canSound = true;
         currentSpeed = speed;
     }
 
@@ -27,6 +30,13 @@ public class Door : MonoBehaviour
             {
                 currentSpeed = 0;
             }
+            if(canSound)
+            {
+                fuente.clip = openSound;
+                fuente.Play();
+                canSound = false;
+            }
+            
         }
         else
         {
@@ -38,6 +48,8 @@ public class Door : MonoBehaviour
 
     public void CerrarPuerta()
     {
+        fuente.clip = closeSound;
+        fuente.Play();
         isOpen = false;
     }
 }

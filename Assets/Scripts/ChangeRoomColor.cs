@@ -9,6 +9,7 @@ public class ChangeRoomColor : MonoBehaviour
     [SerializeField] Material[] roomColors;
     [SerializeField] int colorRoom;
     [SerializeField] SpriteRenderer sigColor;
+    [SerializeField] AudioSource fuente;
     void Start()
     {
         CambioDeColor(colorRoom);
@@ -26,7 +27,7 @@ public class ChangeRoomColor : MonoBehaviour
         colorRoom++;
         if (colorRoom > 3) colorRoom = 0;
         CambioDeColor(colorRoom);
-
+        fuente.Play();
     }
 
     void CambioDeColor(int color)

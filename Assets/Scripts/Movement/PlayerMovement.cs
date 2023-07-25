@@ -7,14 +7,17 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     [SerializeField] float speed;
     float currentSpeed;
-
+    [SerializeField] AudioClip[] steps;
+    [SerializeField] AudioSource fuente;
+    
+    bool canSound;
     public CharacterController controller;
 
    
 
     void Start()
     {
-        
+        canSound = true;
         currentSpeed = speed;
     }
 
@@ -27,7 +30,22 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
         controller.Move(move * currentSpeed * Time.deltaTime);
-
-       
+        if(canSound)
+        {
+            if (z != 0 || x != 0)
+            {
+                StartCoroutine(SonidoPaso());
+            }
+        }
+    }
+    IEnumerator SonidoPaso()
+    {
+        canSound = false;
+        int numStep;
+        numStep = Random.Range(0, steps.Length);
+        fuente.clip = steps[numStep];
+        fuente.Play();
+        yield return new WaitForSeconds(0.65f);
+        canSound = true;
     }
 }

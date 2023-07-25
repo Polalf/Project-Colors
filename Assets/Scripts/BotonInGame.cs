@@ -7,10 +7,11 @@ public class BotonInGame : MonoBehaviour
 {
 
     public UnityEvent onclick;
-
+    [SerializeField] AudioSource fuente;
    
     private void OnMouseDown()
     {
         onclick.Invoke();
+        fuente.Play();
     }
 }
