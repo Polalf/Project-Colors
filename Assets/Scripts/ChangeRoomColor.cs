@@ -8,6 +8,7 @@ public class ChangeRoomColor : MonoBehaviour
     [SerializeField] GameObject[] roomParts, secrets;
     [SerializeField] Material[] roomColors;
     [SerializeField] int colorRoom;
+    [SerializeField] SpriteRenderer sigColor;
     void Start()
     {
         CambioDeColor(colorRoom);
@@ -42,6 +43,7 @@ public class ChangeRoomColor : MonoBehaviour
                 if (secrets[y].tag == "Blanco") secrets[y].SetActive(true);
                 else secrets[y].SetActive(false);
             }
+            sigColor.color = new Color(1, 0, 0);
         }
         else if (color == 1) //ROJO
         {
@@ -55,6 +57,7 @@ public class ChangeRoomColor : MonoBehaviour
                 if (secrets[y].tag == "Rojo") secrets[y].SetActive(true);
                 else secrets[y].SetActive(false);
             }
+            sigColor.color = new Color(0, 1, 0);
         }
         else if (color == 2) //VERDE
         {
@@ -68,6 +71,7 @@ public class ChangeRoomColor : MonoBehaviour
                 if (secrets[y].tag == "Verde") secrets[y].SetActive(true);
                 else secrets[y].SetActive(false);
             }
+            sigColor.color = new Color(0, 0, 1);
         }
         else if (color == 3) //AZUL
         {
@@ -81,6 +85,7 @@ public class ChangeRoomColor : MonoBehaviour
                 if (secrets[y].tag == "Azul") secrets[y].SetActive(true);
                 else secrets[y].SetActive(false);
             }
+            sigColor.color = new Color(1, 1, 1);
         }
     }
 }
