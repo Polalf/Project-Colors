@@ -125,6 +125,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: flecha
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 29
+        width: 65
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6e13e183ab79f94b8693bcab21e049f
+      internalID: 423101654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -136,7 +157,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pixil-frame-0 (3)_1: 423101654
+      flecha: 423101654
       pixil-frame-0 (3)_0: 327257890
   spritePackingTag: 
   pSDRemoveMatte: 0

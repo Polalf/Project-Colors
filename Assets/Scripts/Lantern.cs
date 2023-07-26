@@ -9,6 +9,7 @@ public class Lantern : MonoBehaviour
     [SerializeField] LayerMask[] filtros;
     [SerializeField] Camera playerCam;
     bool lanternOn;
+    [SerializeField] AudioSource fuente;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +25,12 @@ public class Lantern : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             lanternOn = !lanternOn;
+            fuente.Play();
 
         }
         if (Input.GetKeyDown(KeyCode.Alpha1)) CambiarColorLinterna(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) CambiarColorLinterna(1);
         if (Input.GetKeyDown(KeyCode.Alpha3)) CambiarColorLinterna(2);
-        
-        
     }
     void CambiarColorLinterna(int color)
     {

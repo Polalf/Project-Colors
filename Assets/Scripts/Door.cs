@@ -12,9 +12,11 @@ public class Door : MonoBehaviour
     [SerializeField] AudioSource fuente;
     [SerializeField] AudioClip openSound, closeSound;
     bool canSound;
+    bool canClose;
     // Start is called before the first frame update
     void Start()
     {
+        canClose = true;
         canSound = true;
         currentSpeed = speed;
     }
@@ -45,11 +47,21 @@ public class Door : MonoBehaviour
         
         
     }
+    public void AbrirPuerta()
+    {
+        isOpen = true;
+    }
 
     public void CerrarPuerta()
     {
-        fuente.clip = closeSound;
-        fuente.Play();
-        isOpen = false;
+        if(canClose)
+        {
+            fuente.clip = closeSound;
+            fuente.Play();
+            isOpen = false;
+            canClose = false;
+        }
+
+        
     }
 }
